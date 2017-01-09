@@ -14,13 +14,10 @@ function getBadge (options, callback) {
       callback(err)
     if (response.statusCode !== 200)
       callback(new Error('Non-200 status code returned'))
+
     // Add link if we need to
     if (invite)
-      body = body
-        // xlink xmlns and wrapping link
-        .replace('>', ` xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="${invite}">`)
-        // ending link tag
-        .replace(/(.*)<\//, '$1</a></')
+      body = body.replace('>', ` xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
 
     callback(null, body)
   });

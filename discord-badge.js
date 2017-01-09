@@ -5,6 +5,7 @@ function getBadge (options, callback) {
   const right = options.right.replace(/-/g, "--").replace(/_/g, "__")
   const color = options.color || '7289DA'
   const style = options.style || 'flat'
+  const invite = options.invite ? `https://discordapp.com/invite/${options.invite}` : ''
   
   const url = `https://img.shields.io/badge/${left}-${right}-${color}.svg?style=${style}`
   
@@ -13,7 +14,14 @@ function getBadge (options, callback) {
       callback(err)
     if (response.statusCode !== 200)
       callback(new Error('Non-200 status code returned'))
-    
+    // Add link if we need to
+    if (invite)
+      body = body
+        // xlink xmlns and wrapping link
+        .replace('>', ` xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="${invite}">`)
+        // ending link tag
+        .replace(/(.*)<\//, '$1</a></')
+
     callback(null, body)
   });
 }

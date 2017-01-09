@@ -16,8 +16,8 @@ function getBadge (options, callback) {
       callback(new Error('Non-200 status code returned'))
 
     // Add link if we need to
-    if (invite)
-      body = body.replace('>', ` xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
+    // if (invite)
+    //   body = body.replace('>', ` xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
 
     callback(null, body)
   });

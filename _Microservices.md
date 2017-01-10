@@ -9,7 +9,7 @@ In the parameter lists, if a parameter isn't seen in the route, it is used via q
 Generates a Discord badge via [shields.io](http://shields.io), which can be customized with an online user count.
 
 Parameter | Description
--:|:-
+---------:|:-----------
 `guildId` | The ID of a guild to get the online user count for. The guild must have its widget enabled, as this relies on the widget JSON API.
 `invite` | An invite ID to use as a link on the badge. This is not the full URL; if you have an invite link like `discord.gg/JkasDjQ`, you would specify `JkasDjQ` for this parameter.
 `left` | Custom text for the left side of the badge. If `guildId` points to a valid guild, any instance of `{}` will be replaced with the online guild member count.

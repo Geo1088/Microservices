@@ -6,8 +6,6 @@ function getBadge (options, callback) {
   const color = options.color || '7289DA'
   const style = options.style || 'flat'
   const invite = options.invite ? `https://discordapp.com/invite/${options.invite}` : ''
-  console.log(options)
-  console.log(invite)
 
   const url = `https://img.shields.io/badge/${left}-${right}-${color}.svg?style=${style}`
 
@@ -68,14 +66,3 @@ module.exports = function (hook) {
     hook.res.end(badge)
   }
 }
-
-// module.exports({
-//     params: {
-//         id: '267799767843602452',
-//         invite: 'test'
-//     },
-//     res: {
-//         setHeader: () => null,
-//         end: console.log
-//     }
-// })

@@ -6,9 +6,11 @@ function getBadge (options, callback) {
   const color = options.color || '7289DA'
   const style = options.style || 'flat'
   const invite = options.invite ? `https://discordapp.com/invite/${options.invite}` : ''
-  
+  console.log(options)
+  console.log(invite)
+
   const url = `https://img.shields.io/badge/${left}-${right}-${color}.svg?style=${style}`
-  
+
   request(url, function (err, response, body) {
     if (err)
       callback(err)
@@ -16,8 +18,8 @@ function getBadge (options, callback) {
       callback(new Error('Non-200 status code returned'))
 
     // Add link if we need to
-    // if (invite)
-    //   body = body.replace('>', ` xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
+    if (invite)
+      body = body.replace('>', ` xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
 
     callback(null, body)
   });
@@ -44,14 +46,16 @@ module.exports = function (hook) {
         left: hook.params.left || 'chat',
         right: hook.params.right || 'on Discord',
         style: hook.params.style,
-        color: hook.params.color
+        color: hook.params.color,
+        invite: hook.params.invite
       }, callback)
     } else {
       getBadge({
         left: (hook.params.left || 'chat').replace(/{}/g, num),
         right: (hook.params.right || '{} online').replace(/{}/g, num),
         style: hook.params.style,
-        color: hook.params.color
+        color: hook.params.color,
+        invite: hook.params.invite
       }, callback)
     }
   })
@@ -60,7 +64,18 @@ module.exports = function (hook) {
     hook.res.setHeader('Content-Type', 'image/svg+xml')
     if (err)
       return hook.res.end(`<svg xmlns="http://www.w3.org/2000/svg"><!-- ${err} --></svg>`)
-    
+
     hook.res.end(badge)
   }
 }
+
+// module.exports({
+//     params: {
+//         id: '267799767843602452',
+//         invite: 'test'
+//     },
+//     res: {
+//         setHeader: () => null,
+//         end: console.log
+//     }
+// })

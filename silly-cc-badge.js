@@ -31,7 +31,7 @@ function getCodeClimateStatus (repoUser, repoName, callback) {
   })
 }
 
-module.exports = function (hook) { try {
+module.exports = function (hook) {
   getCodeClimateStatus(hook.params.user, hook.params.repo, (err, gpa) => {
     if (err) {
       // well shit
@@ -75,7 +75,8 @@ module.exports = function (hook) { try {
       getBadge({
         left: 'code climate',
         right: right,
-        style: hook.params.style
+        style: hook.params.style,
+        color: color
       }, callback)
     }
   })
@@ -87,4 +88,4 @@ module.exports = function (hook) { try {
 
     hook.res.end(badge)
   }
-} catch (e) { hook.res.end(e) }
+}

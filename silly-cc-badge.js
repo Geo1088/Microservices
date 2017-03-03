@@ -32,7 +32,7 @@ function getCodeClimateStatus (repoUser, repoName, callback) {
 }
 
 module.exports = function (hook) {
-  getCodeClimateStatus(hook.params.repoUser, hook.params.repoName, (err, gpa) => {
+  getCodeClimateStatus(hook.params.user, hook.params.repo, (err, gpa) => {
     if (err) {
       // well shit
       getBadge({

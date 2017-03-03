@@ -1,6 +1,6 @@
 # Microservices
 
-Things I wrote that do stuff. These can all be called via [hook.io](https://hook.io/).
+Things I wrote that do stuff. These are all hosted on [hook.io](https://hook.io/) and can be .
 
 In the parameter lists, if a parameter isn't seen in the route, it is used via query string (`?params=value&otherparam=othervalue`).
 

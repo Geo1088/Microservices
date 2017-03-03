@@ -1,3 +1,4 @@
+const request = require('request')
 
 function getBadge (options, callback) {
   const left = options.left.replace(/-/g, "--").replace(/_/g, "__")

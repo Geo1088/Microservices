@@ -1,3 +1,5 @@
+try {
+
 const request = require('request')
 
 function getBadge (options, callback) {
@@ -88,4 +90,12 @@ module.exports = function (hook) {
 
     hook.res.end(badge)
   }
+}
+
+} catch (e) {
+
+module.exports = (hook) => {
+  console.log(require('util').inspect(hook), '\n\n', e)
+}
+
 }

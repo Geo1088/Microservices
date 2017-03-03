@@ -70,8 +70,10 @@ module.exports = function (hook) {
       }
 
       // Allow thing as well
-      if (hook.params.showGPA)
+      if (hook.params.showgpa) {
+        if (gpa.toString().length < 2) gpa = gpa.toString() + '.0'
         right += ` (${gpa})`
+      }
 
       // All done
       getBadge({

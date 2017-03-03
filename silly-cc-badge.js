@@ -3,7 +3,7 @@ const request = require('request')
 function getBadge (options, callback) {
   const left = options.left.replace(/-/g, "--").replace(/_/g, "__")
   const right = options.right.replace(/-/g, "--").replace(/_/g, "__")
-  const color = options.color || '7289DA'
+  const color = options.color || 'lightgray'
   const style = options.style || 'flat'
 
   const url = `https://img.shields.io/badge/${left}-${right}-${color}.svg?style=${style}`
@@ -39,7 +39,7 @@ module.exports = function (hook) {
         left: 'code climate',
         right: 'badge error',
         style: hook.params.style,
-        color: 'red'
+        color: 'lightgray'
       }, callback)
     } else {
       // We now have the GPA, let's categorize it

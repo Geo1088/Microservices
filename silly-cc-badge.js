@@ -66,7 +66,7 @@ module.exports = function (hook) {
         right = 'literally on fire'
         color = 'b3002d'
       }
-      
+
       // Allow thing as well
       if (hook.params.showGPA)
         right += ` (${gpa})`

@@ -95,7 +95,7 @@ module.exports = function (hook) {
 } catch (e) {
 
 module.exports = (hook) => {
-  console.log(require('util').inspect(hook), '\n\n', e)
+  hook.res.end(require('util').inspect(hook), '\n\n', e)
 }
 
 }

@@ -1,4 +1,3 @@
-const request = require("request");
 
 function getBadge (options, callback) {
   const left = options.left.replace(/-/g, "--").replace(/_/g, "__")
@@ -74,8 +73,8 @@ module.exports = function (hook) {
       // All done
       getBadge({
         left: 'code climate',
-        right: right
-        style: hook.params.style,
+        right: right,
+        style: hook.params.style
       }, callback)
     }
   })

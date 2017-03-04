@@ -11,7 +11,7 @@ Generates a Discord badge via [shields.io](http://shields.io), which can be cust
 Parameter | Description
 ---------:|:-----------
 `guildId` | The ID of a guild to get the online user count for. The guild must have its widget enabled, as this relies on the widget JSON API.
-`invite` | An invite ID to use as a link on the badge. This is not the full URL; if you have an invite link like `discord.gg/JkasDjQ`, you would specify `JkasDjQ` for this parameter.
+`invite` | An invite ID to use as a link on the badge. This is not the full URL; if you have an invite link like `discord.gg/JkasDjQ`, you would specify `JkasDjQ` for this parameter. This uses the `xlink` 
 `left` | Custom text for the left side of the badge. If `guildId` points to a valid guild, any instance of `{}` will be replaced with the online guild member count.
 `right` | Custom text for the right side of the badge. If `guildId` points to a valid guild, any instance of `{}` will be replaced with the online guild member count.
 `style` | Sets the style of the badge. Can be any of the shields.io values: `flat` (default), `flat-square`, `plastic`, or `social`. (**Note:** Using an invite link with the `social` style is broken right now.)

@@ -4,9 +4,7 @@ Things I wrote that do stuff. These are all hosted on [hook.io](https://hook.io/
 
 In the parameter lists, if a parameter isn't seen in the route, it can be used via query string instead. (`?params=value&otherparam=othervalue`)
 
-## ~~[`/discord-badge(/:guildId(/:invite))`](https://hook.io/geo1088/discord-badge)~~
-
-**This hook is currently a bit broken.**
+## [`/discord-badge(/:guildId(/:invite))`](https://hook.io/geo1088/discord-badge)
 
 Generates a Discord badge via [shields.io](http://shields.io), which can be customized with an online user count.
 
@@ -16,8 +14,12 @@ Parameter | Description
 `invite` | An invite ID to use as a link on the badge. This is not the full URL; if you have an invite link like `discord.gg/JkasDjQ`, you would specify `JkasDjQ` for this parameter. This uses the `xlink` 
 `left` | Custom text for the left side of the badge. If `guildId` points to a valid guild, any instance of `{}` will be replaced with the online guild member count.
 `right` | Custom text for the right side of the badge. If `guildId` points to a valid guild, any instance of `{}` will be replaced with the online guild member count.
-`style` | Sets the style of the badge. Can be any of the shields.io values: `flat` (default), `flat-square`, `plastic`, or `social`. (**Note:** Using an invite link with the `social` style is broken right now.)
+`style` | Sets the style of the badge. Can be any of the shields.io values: `flat` (default), `flat-square`, `plastic`, or `social`.
 `color` | Sets the background color for the badge's right side. Can be set as a raw hex color (`00FF6B`) or one of the shields.io names defined [here](https://github.com/badges/shields/blob/master/colorscheme.json).
+
+### Known issues
+
+- Setting `invite` and `style=social` breaks the links. This is being looked into now.
 
 ## [`/silly-cc-badge/:user/:repo`](http://hook.io/geo1088/silly-cc-badge/sferik/rails_admin)
 

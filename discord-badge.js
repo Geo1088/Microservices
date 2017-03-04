@@ -15,10 +15,17 @@ function getBadge (options, callback) {
     if (response.statusCode !== 200)
       callback(new Error('Non-200 status code returned'))
 
-    // Add link if we need to
-    if (invite)
-      // body = body.replace('>', ` xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
-      body = body.replace('>', `><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
+    // Add link stuff if we need to
+    if (invite) {
+      if (body.indexOf('xlink:href="') > -1) {
+        // The link templates are already here, we just need to replace the current value with our own
+        body = body.replace(/(xlink:href=")[^"]*(")/g, `$1${invite}$2`)
+      } else {
+        // We need to wrap the whole thing in a link and go from there
+        // body = body.replace('>', ` xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
+        body = body.replace('>', `><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
+       }
+    }
 
     callback(null, body)
   });

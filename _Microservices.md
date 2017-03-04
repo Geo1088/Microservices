@@ -4,7 +4,9 @@ Things I wrote that do stuff. These are all hosted on [hook.io](https://hook.io/
 
 In the parameter lists, if a parameter isn't seen in the route, it can be used via query string instead. (`?params=value&otherparam=othervalue`)
 
-## [`/discord-badge(/:guildId(/:invite))`](https://hook.io/geo1088/discord-badge)
+## ~~[`/discord-badge(/:guildId(/:invite))`](https://hook.io/geo1088/discord-badge)~~
+
+**This hook is currently a bit broken.**
 
 Generates a Discord badge via [shields.io](http://shields.io), which can be customized with an online user count.
 

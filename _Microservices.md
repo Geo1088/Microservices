@@ -14,8 +14,8 @@ Parameter | Description
 `invite` | An invite ID to use as a link on the badge. This is not the full URL; if you have an invite link like `discord.gg/JkasDjQ`, you would specify `JkasDjQ` for this parameter.
 `left` | Custom text for the left side of the badge. If `guildId` points to a valid guild, any instance of `{}` will be replaced with the online guild member count.
 `right` | Custom text for the right side of the badge. If `guildId` points to a valid guild, any instance of `{}` will be replaced with the online guild member count.
-`style` | Sets the style of the badge. Can be one of the shields.io values `flat` (default), `flat-square`, or `plastic`.
-`color` | Sets the background color for the badge's right side. Can be set as a raw hex color (`00FF6B`) or one of the shields.io names.
+`style` | Sets the style of the badge. Can be any of the shields.io values: `flat` (default), `flat-square`, `plastic`, or `social`.
+`color` | Sets the background color for the badge's right side. Can be set as a raw hex color (`00FF6B`) or one of the shields.io names defined [here](https://github.com/badges/shields/blob/master/colorscheme.json).
 
 ## [`/silly-cc-badge/:user/:repo`](http://hook.io/geo1088/silly-cc-badge/sferik/rails_admin)
 

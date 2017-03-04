@@ -19,17 +19,17 @@ function getBadge (options, callback) {
     if (invite) {
       if (body.indexOf('xlink:href="') > -1) {
         // The link templates are already here, we just need to replace the current value with our own
-        body = body.replace(/(xlink:href=")[^"]*(")/g, `$1${invite}$2`)
+        body = body.replace(/ (xlink:)?(href=")[^"]*(")/g, `$2${invite}$3`)
       } else {
         // We need to wrap the whole thing in a link and go from there
         // body = body.replace('>', ` xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
-        body = body.replace('>', `><a xlink:href="${invite}">`).replace(/(.*)<\//, '$1</a></')
+        body = body.replace('>', `><a href="${invite}">`).replace(/(.*)<\//, '$1</a></')
        }
     } else {
       // If there's no invite and there are link templates in the output, remove the templates
-      body = body.replace(/ xlink:href="[^"]*"/g, '')
+      body = body.replace(/ (xlink:)?href="[^"]*"/g, '')
     }
-
+    
     callback(null, body)
   });
 }

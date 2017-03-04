@@ -2,7 +2,7 @@
 
 Things I wrote that do stuff. These are all hosted on [hook.io](https://hook.io/) and can be accessed as subpaths of `https://hook.io/geo1088`.
 
-In the parameter lists, if a parameter isn't seen in the route, it can be used via query string instead. (`?params=value&otherparam=othervalue`)
+In the parameter lists, if a parameter isn't seen in the route, it can be used via query string instead. (`?param=value&otherparam=othervalue`)
 
 ## [`/discord-badge(/:guildId(/:invite))`](https://hook.io/geo1088/discord-badge)
 

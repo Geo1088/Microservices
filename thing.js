@@ -20,7 +20,8 @@ module.exports = function (hook) {
     const ogHeight = parseInt(/<svg height='([\d.]+)/.exec(body)[1], 10)
     const buf = Buffer.from(body)
     gm(buf).toBuffer('PNG', (err, buffer) => {
-      hook.res.end(buffer)
+      hook.res.setHeader('Content-Type', 'image/png');
+      hook.res.end(buffer, 'binary')
     })
     // hook.res.end(png)
   })

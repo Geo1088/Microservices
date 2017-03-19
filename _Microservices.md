@@ -22,8 +22,8 @@ Parameter | Description
 
 Generates a silly CodeClimate badge with a phrase based on the GPA of the given repository. Oprionally includes the numeric GPA as well.
 
-Paarameter | Description
-----------:|:-----------
+Parameter | Description
+---------:|:-----------
 `user` | The case-sensitive username of the repository owner according to Code Climate. If the repository has switched owners or the owher has changed their username since the repo was added to Code Climate, this value may not be the same as the owner's GitHub name.
 `repo` | The case-sensitive name of the repository according to CodeClimate. Again, if the repository has been renamed since being added, this may not be the GitHub name.
 `showgpa` | If this is set to any value, the repo's GPA will be shown in parentheses after the phrase in the badge.

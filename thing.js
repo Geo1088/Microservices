@@ -21,7 +21,7 @@ module.exports = function (hook) {
     const buf = Buffer.from(body)
     gm(buf).toBuffer('PNG', (err, buffer) => {
       hook.res.setHeader('Content-Type', 'image/png');
-      hook.res.end(buffer, 'binary')
+      hook.res.end(buffer.toString('binary'), 'binary')
     })
     // hook.res.end(png)
   })

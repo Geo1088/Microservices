@@ -15,7 +15,7 @@ const gm = require('gm')
 const request = require('request')
 
 module.exports = function (hook) {
-  const URL = const someURL = `http://latex.codecogs.com/svg.latex?${hook.params.text}`
+  const someURL = `http://latex.codecogs.com/svg.latex?${hook.params.text}`
   request(encodeURI(someURL), (err, res, body) => {
     const ogHeight = parseInt(/<svg height='([\d.]+)/.exec(body)[1], 10)
     const buf = Buffer.from(body)

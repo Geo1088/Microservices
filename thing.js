@@ -17,9 +17,11 @@ const request = require('request')
 module.exports = function (hook) {
   const someURL = `http://latex.codecogs.com/svg.latex?${hook.params.text}`
   request(encodeURI(someURL), (err, res, body) => {
-    const ogHeight = parseInt(/<svg height='([\d.]+)/.exec(body)[1], 10)
+    if (err) hook.res.end(err)
+    // const ogHeight = parseInt(/<svg height='([\d.]+)/.exec(body)[1], 10)
     const buf = Buffer.from(body)
     gm(buf).toBuffer('PNG', (err, buffer) => {
+      if (err) hook.res.end(err)
       hook.res.setHeader('Content-Type', 'image/png');
       hook.res.end(buffer.toString('binary'), 'binary')
     })

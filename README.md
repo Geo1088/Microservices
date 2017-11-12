@@ -18,7 +18,7 @@ Parameter | Description | Default
 `invite` | An invite ID to use as a link on the badge. This is not the full URL; if you have an invite link like `discord.gg/JkasDjQ`, you would specify `JkasDjQ` for this parameter.
 `left` | Custom text for the left side of the badge. If `guildId` points to a valid guild, any instance of `{}` in this parameter's value will be replaced with the online guild member count as a plain number.
 `right` | Custom text for the right side of the badge. If `guildId` points to a valid guild, any instance of `{}` in this parameter's value will be replaced with the online guild member count as a plain number.
-`style` | Sets the style of the badge. Can be any of the shields.io values: `flat`, `flat-square`, `plastic`, or `social`. The default value is set by shields.io, currently `flat`.
+`style` | Sets the style of the badge. Can be any of the shields.io values: `flat`, `flat-square`, `plastic`, `social`, or `for-the-badge`. If nothing is passed, nothing is passed to shields.io, which means whatever their default is will be used.
 `color` | Sets the background color for the badge's right side. Can be set as a raw hex color (no `#` prefix) or one of the shields.io names defined [here](https://github.com/badges/shields/blob/master/colorscheme.json). The default value is `7289DA`, Discord's brand color.
 
 ### Examples
@@ -48,7 +48,7 @@ Parameter | Description
 `user` | The case-sensitive username of the repository owner according to Code Climate. If the repository has switched owners or the owher has changed their username since the repo was added to Code Climate, this value may not be the same as the owner's GitHub name.
 `repo` | The case-sensitive name of the repository according to CodeClimate. Again, if the repository has been renamed since being added, this may not be the GitHub name.
 `showgpa` | If this is set to any value, the repo's GPA will be shown in parentheses after the phrase in the badge.
-`style` | Sets the style of the badge. Can be any of the shields.io values: `flat` (default), `flat-square`, `plastic`, or `social`.
+`style` | Sets the style of the badge. Can be any of the shields.io values: `flat`, `flat-square`, `plastic`, `social`, or `for-the-badge`. If nothing is passed, nothing is passed to shields.io, which means whatever their default is will be used.
 
 ### Examples
 

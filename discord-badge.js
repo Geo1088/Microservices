@@ -34,46 +34,54 @@ function getBadge (options, callback) {
   });
 }
 
-function getOnlineUsers (serverId, callback) {
+function getGuildInfo (serverId, callback) {
   if (!serverId)
     callback(new Error('No ID given'))
   request(`https://discordapp.com/api/servers/${serverId}/widget.json`, (err, response, body) => {
     if (!err && response.statusCode === 200) {
-      body = JSON.parse(body)
-      let onlineCount = body.members.length
-      callback(null, onlineCount)
+      callback(null, JSON.parse(body))
     } else {
       callback(new Error(response.statusCode))
     }
   })
 }
 
+function substituteTokens (string, guildInfo) {
+  return string
+    .replace(/{(members)?}/g, guildInfo.members.length)
+    .replace(/{name}/g, guildInfo.name)
+    .replace(/{channels}/g, guildInfo.channels.length)
+}
+
 module.exports = function (hook) {
-  getOnlineUsers(hook.params.id, (err, num) => {
-    if (err) {
-      getBadge({
-        left: hook.params.left || 'chat',
-        right: hook.params.right || 'on Discord',
-        style: hook.params.style,
-        color: hook.params.color,
-        invite: hook.params.invite
-      }, callback)
-    } else {
-      getBadge({
-        left: (hook.params.left || 'chat').replace(/{}/g, num),
-        right: (hook.params.right || '{} online').replace(/{}/g, num),
-        style: hook.params.style,
-        color: hook.params.color,
-        invite: hook.params.invite
-      }, callback)
+  getGuildInfo(hook.params.id, (err, guildInfo) => {
+    // Set up the standard options
+    let options = {
+      left: hook.params.left || 'chat',
+      right: hook.params.right || '{} online',
+      style: hook.params.style,
+      color: hook.params.color,
+      invite: hook.params.invite
     }
+    // As long as we got the guild stuff, we can add more things
+    if (!err) {
+      options.left = substituteTokens(options.left, guildInfo)
+      options.right = substituteTokens(options.right, guildInfo)
+    } else if (!hook.params.right) {
+      // change `{} online` to `on Discord` if the defaults are used and no guildInfo
+      options.right = 'on Discord'
+    }
+    // Spaces are stupid
+    options.left = options.left.replace(/-/g, "--").replace(/_/g, "__")
+    options.right = options.right.replace(/-/g, "--").replace(/_/g, "__")
+
+    getBadge(options, (err, badgeSource) => {
+      hook.res.setHeader('Content-Type', 'image/svg+xml')
+      if (err) {
+        hook.res.end(`<svg xmlns="http://www.w3.org/2000/svg"><!--\n\nError from shields.io:\n${err}\n\n--></svg>`)
+      } else {
+        hook.res.end(badgeSource)
+      }
+    })
   })
-
-  function callback (err, badge) {
-    hook.res.setHeader('Content-Type', 'image/svg+xml')
-    if (err)
-      return hook.res.end(`<svg xmlns="http://www.w3.org/2000/svg"><!-- ${err} --></svg>`)
-
-    hook.res.end(badge)
-  }
 }

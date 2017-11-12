@@ -23,16 +23,16 @@ Parameter | Description | Default
 
 ### Examples
 
-- https://hook.io/geo1088/discord-badge/  
+- https://hook.io/geo1088/discord-badge  
   A basic badge.
 
 - https://hook.io/geo1088/discord-badge/136501988941758464/JkasDjQ  
   A badge that displays a server's online count and invite.
 
-- https://hook.io/geo1088/discord-badge/?left=nerd%20chat&right=join%20us&color=abcdef  
+- https://hook.io/geo1088/discord-badge?left=nerd%20chat&right=join%20us&color=abcdef  
   A badge that displays custom text and a custom color.
 
-- https://hook.io/geo1088/discord-badge/81384788765712384/discord-api/?style=flat-square&left=api%20chat  
+- https://hook.io/geo1088/discord-badge/81384788765712384/discord-api?style=flat-square&left=api%20chat  
   A badge for the Discord API server.
 
 ---

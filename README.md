@@ -15,11 +15,21 @@ Generates a Discord badge in SVG format via [shields.io](http://shields.io), whi
 Parameter | Description | Default
 ---------:|:------------|:-------
 `guildId` | The ID of a guild to get the online user count for. The guild must have its widget enabled, as this relies on the widget JSON API.
-`invite` | An invite ID to use as a link on the badge. This is not the full URL; if you have an invite link like `discord.gg/JkasDjQ`, you would specify `JkasDjQ` for this parameter.
-`left` | Custom text for the left side of the badge. If `guildId` points to a valid guild, any instance of `{}` in this parameter's value will be replaced with the online guild member count as a plain number.
-`right` | Custom text for the right side of the badge. If `guildId` points to a valid guild, any instance of `{}` in this parameter's value will be replaced with the online guild member count as a plain number.
+`invite` | An invite ID. People clicking the badge will be redirected to this URL. This is not the full URL; if you have an invite link like `discord.gg/JkasDjQ`, you would specify `JkasDjQ` for this parameter.
+`left` | Custom text for the left side of the badge. Also see the next section for how to include guild statistics in this text.
+`right` | Custom text for the right side of the badge. Also see the next section for how to include guild statistics in this text.
 `style` | Sets the style of the badge. Can be any of the shields.io values: `flat`, `flat-square`, `plastic`, `social`, or `for-the-badge`. If nothing is passed, nothing is passed to shields.io, which means whatever their default is will be used.
 `color` | Sets the background color for the badge's right side. Can be set as a raw hex color (no `#` prefix) or one of the shields.io names defined [here](https://github.com/badges/shields/blob/master/colorscheme.json). The default value is `7289DA`, Discord's brand color.
+
+### Tokens for `left`, `right`
+
+If include any of these tokens, they will be replaced with a piece of information about the guild as long as the provided `guildId` is correct and the server in question has its widget enabled.
+
+Token | Substituted value
+-----:|:-----------------
+`{members}` or `{}` | The number of online members on the server.
+`{name}` | The name of the guild.
+`{channels}` | The number of public voice channels on the server.
 
 ### Examples
 
@@ -27,13 +37,16 @@ Parameter | Description | Default
   A basic badge.
 
 - https://hook.io/geo1088/discord-badge/136501988941758464/JkasDjQ  
-  A badge that displays a server's online count and invite.
+  A badge that displays a server's online count and is linked to an invite.
 
 - https://hook.io/geo1088/discord-badge?left=nerd%20chat&right=join%20us&color=abcdef  
   A badge that displays custom text and a custom color.
 
-- https://hook.io/geo1088/discord-badge/81384788765712384/discord-api?style=flat-square&left=api%20chat  
-  A badge for the Discord API server.
+- https://hook.io/geo1088/discord-badge/81384788765712384?style=flat-square&left=api%20chat  
+  A badge for the Discord API server with a custom style.
+
+- https://hook.io/geo1088/discord-badge/81384788765712384?left={name}&right={members}%20talking
+  A badge which uses the tokens to substitute the server's name and online count on the left and right side.
 
 ---
 

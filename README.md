@@ -23,7 +23,7 @@ Parameter | Description | Default
 
 ### Tokens for `left`, `right`
 
-If include any of these tokens, they will be replaced with a piece of information about the guild as long as the provided `guildId` is correct and the server in question has its widget enabled.
+If the left or right text includes any of these tokens, they will be replaced with a piece of information about the guild as long as the provided `guildId` is correct and the server in question has its widget enabled.
 
 Token | Substituted value
 -----:|:-----------------
@@ -42,10 +42,10 @@ Token | Substituted value
 - https://hook.io/geo1088/discord-badge?left=nerd%20chat&right=join%20us&color=abcdef  
   A badge that displays custom text and a custom color.
 
-- https://hook.io/geo1088/discord-badge/81384788765712384?style=flat-square&left=api%20chat  
-  A badge for the Discord API server with a custom style.
+- https://hook.io/geo1088/discord-badge/81384788765712384/discord-api?style=flat-square&left=api%20chat  
+  A badge for the Discord API server with a custom style and invite. (The Discord API server has a custom invite URL of discord.gg/discord-api).
 
-- https://hook.io/geo1088/discord-badge/81384788765712384?left={name}&right={members}%20talking
+- https://hook.io/geo1088/discord-badge/81384788765712384?left={name}&right={members}%20talking  
   A badge which uses the tokens to substitute the server's name and online count on the left and right side.
 
 ---

@@ -37,7 +37,7 @@ function getBadge (options, callback) {
 function getGuildInfo (serverId, callback) {
   if (!serverId)
     callback(new Error('No ID given'))
-  request(`https://discordapp.com/api/servers/${serverId}/widget.json`, (err, response, body) => {
+  request(`https://discordapp.com/api/guilds/${serverId}/widget.json`, (err, response, body) => {
     if (!err && response.statusCode === 200) {
       callback(null, JSON.parse(body))
     } else {

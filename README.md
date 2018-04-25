@@ -10,6 +10,8 @@ Parameters don't necessarily have to be defined via the routes. If a route param
 
 Generates a Discord badge in SVG format via [shields.io](http://shields.io), which can be customized with an online user count and an invite link.
 
+Note: This documentation refers to Discord servers as their internal name of "guild".
+
 ### Parameters
 
 Parameter | Description | Default
@@ -27,9 +29,9 @@ If the left or right text includes any of these tokens, they will be replaced wi
 
 Token | Substituted value
 -----:|:-----------------
-`{members}` or `{}` | The number of online members on the server.
+`{members}` or `{}` | The number of online members of the guild.
 `{name}` | The name of the guild.
-`{channels}` | The number of public voice channels on the server.
+`{channels}` | The number of public voice channels in the guild.
 
 ### Examples
 

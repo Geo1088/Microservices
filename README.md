@@ -35,20 +35,25 @@ Token | Substituted value
 
 ### Examples
 
-- https://hook.io/geo1088/discord-badge  
+- `https://hook.io/geo1088/discord-badge`  
   A basic badge.
+  ![Example 1](https://hook.io/geo1088/discord-badge)
 
-- https://hook.io/geo1088/discord-badge/136501988941758464/JkasDjQ  
-  A badge that displays a server's online count and is linked to an invite.
+- `https://hook.io/geo1088/discord-badge/136501988941758464/JkasDjQ`  
+  A badge that displays a server's online count and is linked to an invite.  
+  ![Example 2](https://hook.io/geo1088/discord-badge/136501988941758464/JkasDjQ)
 
-- https://hook.io/geo1088/discord-badge?left=nerd%20chat&right=join%20us&color=abcdef  
-  A badge that displays custom text and a custom color.
+- `https://hook.io/geo1088/discord-badge?left=nerd%20chat&right=join%20us&color=orange`  
+  A badge that displays custom text and a custom color.  
+  ![Example 3](https://hook.io/geo1088/discord-badge?left=nerd%20chat&right=join%20us&color=orange)
 
-- https://hook.io/geo1088/discord-badge/81384788765712384/discord-api?style=flat-square&left=api%20chat  
-  A badge for the Discord API server with a custom style and invite. (The Discord API server has a custom invite URL of discord.gg/discord-api).
+- `https://hook.io/geo1088/discord-badge/81384788765712384/discord-api?style=flat-square&left=api%20chat`  
+  A badge for the Discord API server with a custom style and invite. (The Discord API server has a custom invite URL of discord.gg/discord-api).  
+  ![Example 4](https://hook.io/geo1088/discord-badge/81384788765712384/discord-api?style=flat-square&left=api%20chat)
 
-- https://hook.io/geo1088/discord-badge/81384788765712384?left={name}&right={members}%20talking  
-  A badge which uses the tokens to substitute the server's name and online count on the left and right side.
+- `https://hook.io/geo1088/discord-badge/81384788765712384?left={name}&right={members}%20talking`  
+  A badge which uses the tokens to substitute the server's name and online count on the left and right side.  
+  !Example 5](https://hook.io/geo1088/discord-badge/81384788765712384?left={name}&right={members}%20talking)
 
 ---
 

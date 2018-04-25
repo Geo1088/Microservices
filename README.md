@@ -36,7 +36,7 @@ Token | Substituted value
 ### Examples
 
 - `https://hook.io/geo1088/discord-badge`  
-  A basic badge.
+  A basic badge.  
   ![Example 1](https://hook.io/geo1088/discord-badge)
 
 - `https://hook.io/geo1088/discord-badge/136501988941758464/JkasDjQ`  
@@ -53,7 +53,7 @@ Token | Substituted value
 
 - `https://hook.io/geo1088/discord-badge/81384788765712384?left={name}&right={members}%20talking`  
   A badge which uses the tokens to substitute the server's name and online count on the left and right side.  
-  !Example 5](https://hook.io/geo1088/discord-badge/81384788765712384?left={name}&right={members}%20talking)
+  ![Example 5](https://hook.io/geo1088/discord-badge/81384788765712384?left={name}&right={members}%20talking)
 
 ---
 

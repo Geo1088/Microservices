@@ -18,8 +18,7 @@ Parameter | Description | Default
 ---------:|:------------|:-------
 `guildId` | The ID of a guild to get the online user count for. The guild must have its widget enabled, as this relies on the widget JSON API.
 `invite` | An invite ID. People clicking the badge will be redirected to this URL. This is not the full URL; if you have an invite link like `discord.gg/JkasDjQ`, you would specify `JkasDjQ` for this parameter.
-`left` | Custom text for the left side of the badge. Also see the next section for how to include guild statistics in this text.
-`right` | Custom text for the right side of the badge. Also see the next section for how to include guild statistics in this text.
+`left`, `right` | Custom text for each side of the badge. Also see the next section for how to include guild statistics in this text. The left side of the badge will default to "chat" and the right will default to "{} online" if a guild ID is provided, or "on Discord" if the guild ID is invalid or not present.
 `style` | Sets the style of the badge. Can be any of the shields.io values: `flat`, `flat-square`, `plastic`, `social`, or `for-the-badge`. If nothing is passed, nothing is passed to shields.io, which means whatever their default is will be used.
 `color` | Sets the background color for the badge's right side. Can be set as a raw hex color (no `#` prefix) or one of the shields.io names defined [here](https://github.com/badges/shields/blob/master/colorscheme.json). The default value is `7289DA`, Discord's brand color.
 
